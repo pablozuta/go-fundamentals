@@ -27,5 +27,24 @@ func main() {
 	fmt.Println(strings.Contains(str , "Haus")) // false
 	fmt.Println(strings.Contains(str , "Die")) // true
 
+	// contar la repeticion de cierta letra
+	fmt.Println(strings.Count(str, "n"))
+
+	// split at character
+	var frase = "Una.Frase.Unida.Por.Puntos"
+	fmt.Println(strings.Split(frase, "."))
+
+	// to upper case
+	fmt.Println(strings.ToUpper(str1))
+
+	// to lower
+	fmt.Println(strings.ToLower(str1))
+
+	// replace
+	var saludo = "Hello Golang"
+	fmt.Println(saludo)
+	fmt.Println(strings.Replace(saludo, "Hello", "Hi", 1))
+
+
 	
 }
