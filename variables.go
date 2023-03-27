@@ -67,5 +67,17 @@ func main() {
 	fmt.Println("este es un int64: ", numeroNueve)
 	fmt.Println("este es un int64: ", numeroNueve2)
 
+	// FLOATS are float32 y float64 (el default es float64)
+	var miFloatDefault = 3.543 // sera de tipo float64
+	var miFloat32 float32 = 4.321
+	var miFloat64 float64 = 543.33
+	fmt.Println(miFloatDefault)
+	fmt.Println(miFloat32)
+	fmt.Println(miFloat64)
+
+	// ver el tipo de dato de una variable
+	fmt.Printf("The value of miFloatDefault es %T\n", miFloatDefault)
+	fmt.Printf("The value of miFloat32 es %T\n", miFloat32)
+
 	
 }
