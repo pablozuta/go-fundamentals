@@ -79,5 +79,48 @@ func main() {
 	fmt.Printf("The value of miFloatDefault es %T\n", miFloatDefault)
 	fmt.Printf("The value of miFloat32 es %T\n", miFloat32)
 
+	// booleans
+	var miBooleanVerdad bool = true
+	var miBooleanMentira bool = false
+	fmt.Println(miBooleanVerdad)
+	fmt.Println(miBooleanMentira)
+
+	// runes
+	var miRuna rune ='♥'
+	fmt.Println(miRuna) // output 9829
+	fmt.Printf("%c\n", miRuna) // output ♥
+
+	// complex numbers
+	var unComplex64 complex64 = 3 + 4i
+	fmt.Println(unComplex64) // output: (3 + 4i)
+	var unComplex128 complex128 = complex(7, 4)
+	fmt.Println(unComplex128) // output (7 + 4i)
+
+	// strings
+	var unString = "American Farm"
+	fmt.Println(unString)
+
+	// DECLARACIONES CORTAS
+	cUno := 20
+	cDos := 43.2
+	cTres := "LOOPS"
+	cCuatro := true
+	fmt.Println(cUno)
+	fmt.Println(cDos)
+	fmt.Println(cTres)
+	fmt.Println(cCuatro)
+
+	// CONSTANTES
+	const unaConstante string = "Tales Of Mystery And Imagination"
+	const unaConstanteInt int = 23
+
+	// constantes con implicit data type
+	const constanteNumero = 300
+	const constanteBool = false
+	const constanteString = "it was the shape of the GALLOWS!"
+	const constanteFloat = 9.8371
+	fmt.Println(constanteString)
+
+
 	
 }
