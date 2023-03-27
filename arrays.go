@@ -14,6 +14,8 @@ func main() {
 
 	primes := [6]int {2, 3, 5, 7, 11, 13}
 
+	var arrayFloats = [3] float32 {3.22, 311.4, 9.9444}
+
 	// array de strings
 	var arrayStrings [3]string
 	arrayStrings[0] = "Dave"
@@ -25,8 +27,9 @@ func main() {
 	arrayBooleans[0] = true
 	arrayBooleans[1] = false
 
-	fmt.Println(arrayStrings)
 	fmt.Println(arrayNumeros)
+	fmt.Println(arrayFloats)
+	fmt.Println(arrayStrings)
 	fmt.Println(arrayBooleans)
 	fmt.Println(primes)
 
@@ -41,13 +44,17 @@ func main() {
 	fmt.Println(arrayStringsLiteral[3])
 	fmt.Println(arrayStringsLiteral[4])
 
+	// array con longitud basada en cuantos elementos incluyamos
+	var arrayNumerosLongitud = [...] int {2, 3, 7, 54, 32, 3}
+	fmt.Println(arrayNumerosLongitud)
+
 	// initialize specific index of an array
 	// inicializa el index 1 con el valor 34 y el index 3 con el valor 60
 	x := [5]int {1:34, 3:60} 
 	fmt.Println("Inicializacion de Index 1 y 3")
 	fmt.Println(x)
 
-	// looping por un array
+	// LOOPING EN ARRAYS
 	for i:= 0; i < len(x); i++ {
 		fmt.Println("looping por el array: ",x[i])
 	}
