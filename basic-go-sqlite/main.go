@@ -6,10 +6,11 @@ import (
 	"os"
 
 	_ "github.com/mattn/go-sqlite3"
+	"github.com/tealeg/xlsx"
 )
 
 func main() {
-	// abre una connecion con la base de datos
+	// abre una coneccion con la base de datos
 	db, err := sql.Open("sqlite3", "example.db")
 	if err != nil {
 		panic(err)
@@ -27,9 +28,10 @@ func main() {
 		fmt.Println("1. AGREGAR USUARIO")
 		fmt.Println("2. BORRAR USUARIO")
 		fmt.Println("3. MOSTRAR USUARIOS")
-		fmt.Println("4. SALIR")
+		fmt.Println("4. EXPORTAR EN FORMATO EXCEL")
+		fmt.Println("5. SALIR")
 		fmt.Print("INGRESA TU OPCION: ")
-        
+
 		// almacena numero en variable
 		var choice int
 		fmt.Scan(&choice)
@@ -57,19 +59,19 @@ func main() {
 
 			result, err := db.Exec("DELETE FROM users WHERE id = ?", id)
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "Error deleting user: %v\n", err)
+				fmt.Fprintf(os.Stderr, "Error al borrar usuario: %v\n", err)
 			} else {
 				rowsAffected, _ := result.RowsAffected()
 				if rowsAffected == 0 {
-					fmt.Println("User not found.")
+					fmt.Println("Usuario no encontrado.")
 				} else {
-					fmt.Println("User deleted successfully.")
+					fmt.Println("User Borrado Exitosamente.")
 				}
 			}
 		case 3:
 			rows, err := db.Query("SELECT id, name, email FROM users")
 			if err != nil {
-				fmt.Fprintf(os.Stderr, "Error showing users: %v\n", err)
+				fmt.Fprintf(os.Stderr, "Error al mostrar usuarios: %v\n", err)
 			} else {
 				defer rows.Close()
 
@@ -92,10 +94,51 @@ func main() {
 				}
 			}
 		case 4:
+			// Consulta la base de datos para obtener la tabla de usuarios
+			rows, err := db.Query("SELECT * FROM users")
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "Error al consultar usuarios: %v\n", err)
+			} else {
+				// crea un nuevo archivo excel
+				file := xlsx.NewFile()
+				sheet, err := file.AddSheet("Usuarios")
+				if err != nil {
+					fmt.Fprintf(os.Stderr, "Error al agregar hoja: %v\n", err)
+				} else {
+					// agrega encabezados de columna
+					row := sheet.AddRow()
+					row.AddCell().SetValue("ID")
+					row.AddCell().SetValue("Nombre")
+					row.AddCell().SetValue("Email")
+
+					// itera a través de las filas de resultados y agrega datos a las celdas
+					for rows.Next() {
+						var id int
+						var name string
+						var email string
+						rows.Scan(&id, &name, &email)
+
+						row := sheet.AddRow()
+						row.AddCell().SetValue(id)
+						row.AddCell().SetValue(name)
+						row.AddCell().SetValue(email)
+					}
+
+					// guarda el archivo y muestra mensaje de éxito
+					err = file.Save("usuarios.xlsx")
+					if err != nil {
+						fmt.Fprintf(os.Stderr, "Error al guardar archivo: %v\n", err)
+					} else {
+						fmt.Println("Tabla de Usuarios Exportada a 'usuarios.xlsx'.")
+					}
+				}
+			}
+		case 5:
 			fmt.Println("HASTA LUEGO!")
 			return
 		default:
 			fmt.Println("Invalid choice. Please try again.")
+
 		}
 
 		fmt.Println()
