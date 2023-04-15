@@ -12,6 +12,11 @@ func main() {
 	app.Get("/", func(c *fiber.Ctx) error {  
 	return c.SendString("Hola desde FIBER")  
 	})  
+
+	// otra ruta
+	app.Get("/about", func(c *fiber.Ctx) error {
+		return c.SendString("About Page")
+	})
 	  
 	// iniciamos el servidor en el puerto 3000 
 	err := app.Listen(":3000")  
