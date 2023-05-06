@@ -41,14 +41,21 @@ func main() {
 
 		switch choice {
 		case 1:
+			// creamos un NewReader llamado reader
 			reader := bufio.NewReader(os.Stdin)
-			
-			// Input prompt for title
+
+			// declaramos dos variables de tipo string para almacenar datos ingresados por el usuario
 			var title, author string
+
+			// Input prompt for title
 			fmt.Print("Ingresar Titulo: ")
+			// empezamos un for loop
 			for {
+				// leemos el input usando el reader y descartamos el valor de retorno de error usando _
 				title, _ = reader.ReadString('\n')
+				// borramos cualquier espacio al final o comienzo del string
 				title = strings.TrimSpace(title)
+				// si el titulo no es un string vacio salimos del for loop
 				if title != "" {
 					break
 				}
@@ -94,9 +101,10 @@ func main() {
 				fmt.Fprintf(os.Stderr, "Error al mostrar usuarios: %v\n", err)
 			} else {
 				defer rows.Close()
-                
+
 				fmt.Println("*****************************************************************************")
-				fmt.Println("ID\tTitle\t            Author")
+				fmt.Println("ID\tTitle\t\t             Author")
+				fmt.Println("_____________________________________________________________________________")
 				for rows.Next() {
 					var id int
 					var title string
@@ -106,7 +114,8 @@ func main() {
 						fmt.Fprintf(os.Stderr, "Error showing users: %v\n", err)
 						break
 					}
-					fmt.Printf("%d\t%s\t%s\n", id, title, author)
+					output := fmt.Sprintf("%d   %-30s   %-30s", id, title, author)
+					fmt.Println(output)
 				}
 
 				err = rows.Err()
@@ -162,16 +171,16 @@ func main() {
 
 		case 6:
 			result, err := db.Exec("DELETE FROM users")
-				if err != nil {
-					fmt.Fprintf(os.Stderr, "No se pudieron borrar datos: %v\n", err)
+			if err != nil {
+				fmt.Fprintf(os.Stderr, "No se pudieron borrar datos: %v\n", err)
+			} else {
+				rowsAffected, _ := result.RowsAffected()
+				if rowsAffected == 0 {
+					fmt.Println("No hay datos para borrar")
 				} else {
-					rowsAffected, _ := result.RowsAffected()
-					if rowsAffected == 0 {
-						fmt.Println("No hay datos para borrar")
-					} else {
-						fmt.Println("Datos borrados exitosamente")
-					}
-				} // fin case 6
+					fmt.Println("Datos borrados exitosamente")
+				}
+			} // fin case 6
 
 		} // final switch statement
 

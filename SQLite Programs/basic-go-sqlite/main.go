@@ -9,7 +9,9 @@ import (
 
 func main() {
     // variables
-	var nombreDB = "users.db"
+	fmt.Print("Enter the name for the database: ")
+	var nombreDB string
+	fmt.Scan(&nombreDB)
 	var nombreTabla = "users"
 
 	// abre una coneccion con la base de datos
