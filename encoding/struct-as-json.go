@@ -20,6 +20,7 @@ func main() {
 		return
 	}
 	
-	fmt.Println("go struct:", persona)
+	fmt.Println("go struct Name:", persona.Name)
+	fmt.Println("go struct Age:", persona.Age)
 	fmt.Println("JSON object:" ,string(personaJSON))
 }
