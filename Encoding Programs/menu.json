@@ -1,0 +1,16 @@
+{
+    "drinks": [
+        {
+            "name": "Neon Martini",
+            "price": 15
+        },
+        {
+            "name": "Electric Lemonade",
+            "price": 10
+        },
+        {
+            "name": "Cyber Cola",
+            "price": 5
+        }
+    ]
+}
