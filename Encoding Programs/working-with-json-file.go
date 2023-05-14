@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"os"
 )
 type Drink struct {
 	Name string `json:"name"`
@@ -17,7 +17,7 @@ type Menu struct {
 
 func main() {
 	// read the json file
-	fileBytes, err := ioutil.ReadFile("menu.json")
+	fileBytes, err := os.ReadFile("menu.json")
 	if err != nil {
 		fmt.Println("No se pudo encontrar el archivo especificado")
 		panic(err)
