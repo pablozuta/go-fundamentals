@@ -15,8 +15,8 @@ type Book struct {
 
 func main() {
 	// creamos un cliente supabase
-	supabaseUrl := "https://nzqszurmnlwplwetnhuz.supabase.co"
-	supabaseKey := "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56cXN6dXJtbmx3cGx3ZXRuaHV6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzYwODk5NjEsImV4cCI6MTk5MTY2NTk2MX0.CGebwlVumpYn8chKzJi3u64B__SISfW1948cvfJltW0"
+	supabaseUrl := "[URL]"
+	supabaseKey := "[KEY]"
 	supabase := supa.CreateClient(supabaseUrl, supabaseKey)
 
 	// usamos el struct Book para guardar los datos obtenidos en un slice llamado 'results'
