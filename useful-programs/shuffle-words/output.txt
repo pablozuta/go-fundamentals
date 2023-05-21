@@ -1,0 +1,3 @@
+putting.with an obvious interpretation.The stack is the simplest of all structures
+objects on the stack and taking them off again.with access possible only to the
+local variables.or search in a labyrinth with backtracking..or backtracking.For this reason they are sometimes also described as LIFO storage.recursive definitions.with parentheses and operator priorities.top item.Stacks occur in programming wherever we have nested blocks.last in.Typical programming exercises that involve a stack.are the evaluation of arithmetic expressions.first out
