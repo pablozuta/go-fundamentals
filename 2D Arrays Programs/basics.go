@@ -38,4 +38,25 @@ func main() {
 		fmt.Println()
 	}
 
+	// array 2D strings
+	matrixStrings := [2][2]string{
+		{"uno", "dos"},
+		{"ultra", "violento"},
+	}
+	fmt.Println("Valores matrix de strings = ", matrixStrings[0][1])
+	fmt.Println("Valores matrix de strings = ", matrixStrings[1][1])
+	fmt.Println("Valores matrix de strings = ", matrixStrings[1][0])
+	fmt.Println("Valores matrix de strings = ", matrixStrings[0][0])
+
+	// mostrar sin formato
+	fmt.Println("Matrix sin formato")
+	fmt.Println(matrixStrings)
+
+	// for loop mostrar todos los nodos
+	for i := 0; i < len(matrixStrings); i++ {
+		for j := 0; j < len(matrixStrings[i]); j++ {
+			fmt.Println(matrixStrings[i][j], "Index =", i, j)
+		}
+	}
+
 }
