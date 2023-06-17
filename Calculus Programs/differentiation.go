@@ -1,3 +1,4 @@
+// In this program, we define the derivativeApproximation function that calculates the numerical approximation of the derivative using the finite difference method. The f function represents the original function we want to differentiate. We pass the function, the point at which we want to evaluate the derivative, and the step size h as parameters to the derivativeApproximation function. The result is then printed. 
 package main
 
 import (
