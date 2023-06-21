@@ -1,0 +1,1 @@
+2023/06/20 23:28:59 Hola desde custom logger multiple output
