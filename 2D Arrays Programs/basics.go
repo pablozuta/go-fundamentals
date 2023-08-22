@@ -19,6 +19,7 @@ func main() {
 	fmt.Println("primer nodo array dos", matrixIntDos[0][0])
 	// mostrar el ultimo nodo
 	fmt.Println("ultimo nodo", matrixInt[2][2])
+	fmt.Println("ultimo nodo array dos", matrixIntDos[1][1])
 
 	// mostrar sin formato
 	fmt.Println(matrixInt)
