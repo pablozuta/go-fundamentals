@@ -9,9 +9,14 @@ func main() {
 		{3, 6, 9},
 		{1, 8, 1},
 	}
+	matrixIntDos := [2][2]int {
+		{22, 54},
+		{33, 65},
+	}
 
 	// mostrar el primer nodo
 	fmt.Println("primer nodo", matrixInt[0][0])
+	fmt.Println("primer nodo array dos", matrixIntDos[0][0])
 	// mostrar el ultimo nodo
 	fmt.Println("ultimo nodo", matrixInt[2][2])
 
