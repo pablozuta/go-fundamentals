@@ -1,3 +1,5 @@
+// This program converts a temperature value to resistance using the Steinhart-Hart equation, simulating the behavior of a thermistor.
+
 package main
 
 import (
@@ -6,6 +8,7 @@ import (
 )
 
 func temperatureToResistance(tempCelsius, referenceResistance, betaCoefficient float64) float64 {
+	// Steinhart-Hart equation
 	invTempKelvin := 1.0 / (tempCelsius + 273.15)
 	return referenceResistance * math.Exp(betaCoefficient*(invTempKelvin-1))
 }
