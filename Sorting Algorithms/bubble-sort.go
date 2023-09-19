@@ -4,6 +4,7 @@ import "fmt"
 
 // bubbleSort performs bubble sort on the given integer slice.
 func bubbleSort(arr []int) {
+
 	n := len(arr)
 	for i := 0; i < n-1; i++ {
 		for j := 0; j < n-i-1; j++ {
@@ -17,6 +18,7 @@ func bubbleSort(arr []int) {
 
 func main() {
 	arr := []int{52, 76, 32, 77, 1, 3, 55}
+	fmt.Println("Original Array =", arr)
 
 	// Call bubbleSort to sort the array in ascending order.
 	bubbleSort(arr)
