@@ -1,51 +1,52 @@
+// In this example, we have an employee struct and a manager struct that both embed a person struct. The person struct contains basic information about the person, while the employee struct contains additional information about their job and salary, and the manager struct contains additional information about their team.
 package main
 
 import "fmt"
 
-type Person struct {
-	Name string
-	Age int
+type person struct {
+	name string
+	age  int
 }
-type Employee struct {
-	Person // embed the Person struct
-	Job string
-	Salary float64
+type employee struct {
+	person // embed the person struct
+	job    string
+	salary float64
 }
-type Manager struct {
-	Employee // embed the Employee struct
-	TeamSize int
+type manager struct {
+	employee // embed the employee struct
+	teamSize int
 }
 
 func main() {
 	// create an employee
-	e := Employee {
-		Person: Person{Name: "Joanne Archs", Age: 23},
-		Job: "Software Engineer",
-		Salary: 75000.0,
+	e := employee{
+		person: person{name: "Joanne Archs", age: 23},
+		job:    "Software Engineer",
+		salary: 75000.0,
 	}
 
 	// create a manager
-	m := Manager {
-		Employee: Employee{
-			Person: Person{Name: "Russ Cox", Age: 34},
-			Job:"Lead Architect",
-			Salary: 104000.0,
+	m := manager{
+		employee: employee{
+			person: person{name: "Russ Cox", age: 34},
+			job:    "Lead Architect",
+			salary: 104000.0,
 		},
-		TeamSize: 10,
+		teamSize: 10,
 	}
 
 	// print info
-	fmt.Println(e.Age)
-	fmt.Println(e.Job)
-	fmt.Println(e.Name)
-	fmt.Println(e.Person)
-	fmt.Println(e.Salary)
+	fmt.Println(e.age)
+	fmt.Println(e.job)
+	fmt.Println(e.name)
+	fmt.Println(e.person)
+	fmt.Println(e.salary)
 
-	fmt.Println(m.Age)
-	fmt.Println(m.Job)
-	fmt.Println(m.Employee)
-	fmt.Println(m.Name)
-	fmt.Println(m.TeamSize)
-	fmt.Println(m.Salary)
-	
+	fmt.Println(m.age)
+	fmt.Println(m.job)
+	fmt.Println(m.employee)
+	fmt.Println(m.name)
+	fmt.Println(m.teamSize)
+	fmt.Println(m.salary)
+
 }
