@@ -148,6 +148,25 @@ func main() {
 	for _, c := range characters {
 		fmt.Printf("Name: %s\n", c.GetName())
 		fmt.Printf("Age: %d\n", c.GetAge())
+
+		// invocamos el metodo GetAbilities y recibimos un []string
+		abilities := c.GetAbilities() 
+		for _, a := range abilities {
+			fmt.Println("-", a)
+		}
 		fmt.Printf("Abilities: %v\n", c.GetAbilities())
+
+		// If the character is a Hanon user print their ripple techniques
+		if hu, ok := c.(HamonUser); ok {
+			fmt.Printf("Ripple Techniques: %v\n", hu.GetRippleTechniques())
+		}
+
+		// If the character is a vampire print their weakness
+		if v, ok := c.(Vampire); ok {
+			fmt.Printf("Weakness: %s\n", v.GetWeakness())
+		}
+
+		fmt.Println()
+
 	}
 }
