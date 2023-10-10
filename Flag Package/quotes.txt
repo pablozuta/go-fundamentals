@@ -1,0 +1,10 @@
+1.1 What is an Operating System?
+"The architecture of most computers at the machine-language level is primitive and awkward."      
+"Good abstractions turn a nearly impossible task into two manageable ones."     
+"The Job of the Operating System is create good abstraction"      
+"Hardware is ugly… and present difficult, awkward, idiosyncratic and inconsistent interfaces to the people who has to write software to use them"      
+"Operating Systems turn the ugly into the beautiful"      
+"In the bottom-up view ,the job of OS is to provide for and orderly and controlled allocation of the processors, memories, and I/O devices among the various programs wanting them"      
+
+Computer HardWare Review
+"An Operating System is intimately tied to the hardware of the computer it runs on. It extends the computer's instruction set and manages its resources."    
